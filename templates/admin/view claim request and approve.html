@@ -1,0 +1,46 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+      <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="/claimsearch#about">
+  <table width="200" border="1" class="table table-striped">
+    <tr>
+      <th colspan="7" scope="row">Date:
+
+        <input type="date" name="textfield50" value="{{ t }}" required/>
+        <input type="submit" name="Submit" value="Go" class="btn btn-warning"/>
+      </th>
+    </tr>
+    <tr class="table-dark">
+      <th scope="row">slno</th>
+      <td>User</td>
+      <td>Claim</td>
+      <td>Description</td>
+      <td>Document</td>
+      <td>Policy</td>
+      <td>Status</td>
+    </tr>{% for i in val %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ i.USER.first_name }} {{ i.USER.last_name }}</td>
+      <td>{{ i.claim }}</td>
+      <td>{{ i.description }}</td>
+      <td><a href="{{ i.document.url }}" download>Download</a> </td>
+      <td>{{ i.POLICY.name }}</td>
+        {% if i.status == "pending" %}
+      <td><a href="acceptclaim/{{ i.id }}" class="btn btn-info">Accept</a>
+        <a href="rejectclaim/{{ i.id }}" class="btn btn-success">Reject</a></td>
+        {% else %}
+            <td>{{ i.status }}</td>
+        {% endif %}
+    </tr>{% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

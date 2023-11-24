@@ -1,0 +1,37 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1">
+    <tr>
+      <th scope="row"><a href="AddManage_policy">Add and manage policy</a></th>
+    </tr>
+    <tr>
+      <th scope="row"><a href="viewreq">View request from users and update status</a></th>
+    </tr>
+    <tr>
+      <th scope="row"><a href="ViewFeed">View feedback</a></th>
+    </tr>
+    <tr>
+      <th scope="row"><a href="ViewRating">View rating</a></th>
+    </tr>
+    <tr>
+      <th scope="row"><a href="viewclaim">View claim request and approve</a></th>
+    </tr>
+    <tr>
+      <th scope="row"><a href="ViewCompSendReply">View complaints and send replies</a></th>
+    </tr>
+      <tr>
+      <th scope="row"><a href="viewuser">View User</a></th>
+    </tr>
+    <tr>
+      <th scope="row"><a href="#">
+        <label>
+        <input type="submit" name="Submit" value="Logout" />
+        </label>
+      </a></th>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

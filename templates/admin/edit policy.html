@@ -1,0 +1,33 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+      <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="/editpolicy_post">
+  <table width="225" border="1" class="table table-striped">
+    <tr>
+      <th width="44" scope="row" class="table-dark">Name</th>
+      <td width="165"><label>
+        <input type="text" name="textfield" value="{{ val.name }}" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row" class="table-dark">Policy details </th>
+      <td><label>
+        <input type="text" name="textfield2" value="{{ val.policy_detials }}" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2" scope="row" align="center"><label>
+        <input type="submit" name="Submit" value="Submit" class="btn btn-info"/>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

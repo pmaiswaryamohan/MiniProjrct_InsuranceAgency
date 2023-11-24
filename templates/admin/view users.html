@@ -1,0 +1,39 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="/usersearch#about">
+  <table width="279" border="1" class="table table-striped">
+    <tr>
+      <th colspan="6" scope="row">Name:
+        <label>
+        <input type="text" name="textfield50" value="{{ t }}" required/>
+        <input type="submit" name="Submit" value="Go" class="btn btn-warning"/>
+      </label></th>
+    </tr>
+    <tr class="table-dark">
+      <th width="27" scope="row">slno</th>
+      <td width="37">Name</td>
+      <td width="51">Address</td>
+      <td width="33">Email</td>
+      <td width="38">Phone</td>
+      <td width="53">Id proof </td>
+    </tr>{% for i in val %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+        <td><img src="{{ i.photo.url }}" height="100" width="100"><br> {{ i.first_name }} {{ i.last_name }}</td>
+      <td>{{ i.place }}<br>{{ i.post }}<br>{{ i.pin }}</td>
+      <td>{{ i.email }}</td>
+      <td>{{ i.phone }}</td>
+      <td><a href="{{ i.proof.url }}" download>Download</a></td>
+    </tr>{% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

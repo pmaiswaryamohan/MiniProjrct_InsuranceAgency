@@ -1,0 +1,50 @@
+{% extends 'user/userindex.html' %}
+{% block body %}
+    <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        table th {
+  background-color: #050405;
+  color: white;
+}
+    </style>
+</head>
+
+
+<body>
+<form id="form1" name="form1" method="post" enctype="multipart/form-data" action="/sclaim#about">
+  <table width="200" border="1" class="table table-striped">
+    <tr>
+      <th colspan="5" scope="col">Date 
+        <label>
+        <input type="date" name="textfield50" value="{{ t }}" required/>
+        <input type="submit" name="Submit" value="Go" class="btn btn-warning"/>
+      </label></th>
+    </tr>
+    <tr class="table-dark">
+      <td>slno</td>
+      <td>Claim</td>
+      <td>Policy</td>
+      <td>Description</td>
+      <td>Date</td>
+      <td>Status</td>
+    </tr>{% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.claim }}</td>
+      <td>{{ i.POLICY.name }}</td>
+      <td>{{ i.description }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.status }}</td>
+    </tr>{% endfor %}
+    <tr>
+      <td colspan="5" align="center"><a href="AddClaim#about" class="btn btn-info"> Add New</a></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

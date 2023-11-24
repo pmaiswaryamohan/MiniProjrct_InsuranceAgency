@@ -1,0 +1,44 @@
+{% extends 'user/userindex.html' %}
+{% block body %}
+    <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        table th {
+  background-color: #050405;
+  color: white;
+}
+    </style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="rate">
+  <table width="200" border="1" class="table table-striped">
+    <tr>
+      <th class="table-dark" scope="row">Rating:
+      </th><td>
+  <select name="select" required>
+      <option value="1" style="color: black"><b>1</b></option>
+      <option value="1.5" style="color: black"><b>1.5</b></option>
+      <option value="2" style="color: black"><b>2</b></option>
+      <option value="2.5" style="color: black"><b>2.5</b></option>
+      <option value="3" style="color: black"><b>3</b></option>
+      <option value="3.5" style="color: black"><b>3.5</b></option>
+      <option value="4" style="color: black"><b>4</b></option>
+      <option value="4.5" style="color: black"><b>4.5</b></option>
+      <option value="5" style="color: black"><b>5</b></option>
+  </select>
+  </td>
+    </tr>
+    <tr>
+      <th scope="row"><label>
+        <input type="submit" name="Submit" value="Send" class="btn btn-info"/>
+      </label></th>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

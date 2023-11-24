@@ -1,0 +1,73 @@
+
+		{% extends 'user/userindex.html' %}
+{% block body %}
+				<form action="/UserUpdate" method="post" enctype="multipart/form-data">
+
+					<div class="form-holder">
+                <span></span>
+                <input type="text" class="form-control" placeholder="Firstname" name="textfield2" required pattern="[A-Z a-z.]{3,25}" value="{{ v.first_name }}">
+            </div>
+            <div class="form-holder">
+                <span></span>
+                <input type="text" class="form-control" placeholder="Last Name" name="textfield3" required pattern="[A-Z a-z.]{1,25}" value="{{ v.last_name }}">
+            </div>
+{#            <div class="form-holder">#}
+{#                <span></span>#}
+{#                Gender:#}
+{#                <label>#}
+{#                    <input name="radiobutton" type="radio" value="Male" required> Male#}
+{#                </label>#}
+{#                <label>#}
+{#                    <input name="radiobutton" type="radio" value="Female"> Female#}
+{#                </label>#}
+{#            </div>#}
+            <div class="form-holder">
+                <span></span>
+                <input type="text" class="form-control" placeholder="Place" name="textfield4" required pattern="[A-Z a-z.]{3,25}" value="{{ v.place }}">
+            </div>
+            <div class="form-holder">
+                <span></span>
+                <input type="text" class="form-control" placeholder="Post" name="textfield5" required pattern="[A-Z a-z.]{3,25}" value="{{ v.post }}">
+            </div>
+            <div class="form-holder">
+                <span></span>
+                <input type="text" class="form-control" placeholder="Pin" name="textfield" required pattern="[0-9]{6}" value="{{ v.pin }}">
+            </div>
+            <div class="form-holder">
+                <span></span>
+                <input type="text" class="form-control" placeholder="Phone" name="textfield6" required pattern="[6789][0-9]{9}" value="{{ v.phone }}">
+            </div>
+            <div class="form-holder">
+                <span></span>
+                <input type="email" class="form-control" placeholder="Email" name="textfield7" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" value="{{ v.email }}">
+            </div>
+            <div class="form-holder">
+                <span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               Photo
+               <img src="{{ v.photo.url }}" width="100" height="100"/>
+            </div> <div class="form-holder">
+                <span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="file" name="file"   >
+            </div>
+                     <div class="form-holder">
+                <span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               ID Proof
+                         <img src="{{ v.proof.url }}" width="100" height="100"/>
+            </div>
+                     <div class="form-holder">
+                <span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="file" name="file2"  placeholder="Place" >
+            </div>
+
+
+					<button>
+						<span>Update</span>
+					</button>
+				</form>
+
+			</div>
+
+		</div>
+
+
+    {% endblock %}

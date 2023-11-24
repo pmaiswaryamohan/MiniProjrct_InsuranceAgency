@@ -1,0 +1,46 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="/research#about">
+  <table width="200" border="1" class="table table-striped">
+    <tr>
+      <th colspan="5" scope="row">Policy:
+        <label>
+        <select name="select" required>{% for j in val1 %}
+<option value="{{ j.id }}"  {% if  j.id  ==  t  %} selected {% endif %} > {{ j.name }} </option>
+        {% endfor %}
+        </select>
+        <input type="submit" name="Submit" value="Go" class="btn btn-warning"/>
+      </label></th>
+    </tr>
+    <tr class="table-dark">
+      <th scope="row">slno</th>
+      <td>User</td>
+      <td>Policy</td>
+      <td>Date</td>
+      <td><a href="#"></a></td>
+    </tr>{% for i in val %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ i.USER.first_name }} {{ i.USER.last_name }}</td>
+      <td>{{ i.POLICY.name }}</td>
+      <td>{{ i.date }}</td>
+        {% if i.status == "pending" %}
+      <td><a href="/acceptreq/{{ i.id }}#about" class="btn btn-info">Accept</a>
+        <a href="/rejectreq/{{ i.id }}#about" class="btn btn-success">Reject</a></td>
+        {% else %}
+            <td>{{ i.status }}</td>
+        {% endif %}
+
+    </tr>{% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

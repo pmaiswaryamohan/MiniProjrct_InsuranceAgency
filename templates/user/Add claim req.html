@@ -1,0 +1,53 @@
+{% extends 'user/userindex.html' %}
+{% block body %}
+    <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        table th {
+  background-color: #050405;
+  color: white;
+}
+    </style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" enctype="multipart/form-data" action="addnew">
+  <table width="277" border="1" class="table table-striped">
+    <tr>
+        <th class="table-dark width="267" scope="row">Claim:</th>
+       <td>
+        <input type="text" name="textfield" required/>
+      </td>
+    </tr>
+
+    <tr>
+      <th class="table-dark" scope="row">Description:
+       </th><td>
+        <input type="text" name="textarea2" required/></td>
+
+    </tr>
+
+    <tr>
+      <th class="table-dark scope="row">Policy:</td>
+    <td>
+        <select name="select" required>
+            {% for i in val %}<option value="{{ i.POLICY.id }}">{{ i.POLICY.name }}</option>{% endfor %}
+        </select>
+     </td>
+    </tr>
+
+          <th class="table-dark" scope="row">Document:
+      </th>
+        <td>      <input type="file" name="file" required></td>
+
+      </tr>
+    <tr>
+      <td align="center" colspan="2"><input type="submit" name="Submit" value="Submit" class="btn btn-info"/></td>
+    </tr>
+  </table>
+</form>
+</body>{% endblock %}
